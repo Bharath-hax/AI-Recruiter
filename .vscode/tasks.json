@@ -1,0 +1,79 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "AI Recruiter typecheck",
+			"type": "shell",
+			"command": "npm run lint",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Install AI Recruiter dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify AI Recruiter typecheck",
+			"type": "shell",
+			"command": "npm run lint",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Install dependencies with diagnostics",
+			"type": "shell",
+			"command": "npm install --no-audit --no-fund --verbose",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Complete dependency installation",
+			"type": "shell",
+			"command": "npm install --no-audit --no-fund --ignore-scripts",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install app packages silently",
+			"type": "shell",
+			"command": "npm install --ignore-scripts --no-audit --no-fund --silent",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Diagnose package install",
+			"type": "shell",
+			"command": "npm install --ignore-scripts --no-audit --no-fund *> npm-install.log; Get-Content npm-install.log",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect Git repository state",
+			"type": "shell",
+			"command": "git status --short; git remote -v; git branch --show-current; git check-ignore -v .env; git ls-files .env",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Upload AI Recruiter to GitHub",
+			"type": "shell",
+			"command": "git init; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; git branch -M main; git remote remove origin 2>$null; git remote add origin https://github.com/Bharath-hax/AI-Recruiter.git; git check-ignore -v .env; if ($LASTEXITCODE -ne 0) { Write-Error '.env is not ignored'; exit 1 }; git add .; git diff --cached --name-only; if (git diff --cached --name-only | Select-String -SimpleMatch '.env') { Write-Error '.env is staged'; exit 1 }; git commit -m \"Initial commit: AI Recruiter platform`n`nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>\"; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; git push -u origin main",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Commit and push AI Recruiter",
+			"type": "shell",
+			"command": "git init; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; git branch -M main; git remote remove origin 2>$null; git remote add origin https://github.com/Bharath-hax/AI-Recruiter.git; git check-ignore -v .env; if ($LASTEXITCODE -ne 0) { Write-Error '.env is not ignored'; exit 1 }; git add .; $staged = git diff --cached --name-only; $staged; if ($staged | Select-String -SimpleMatch '.env') { Write-Error '.env is staged'; exit 1 }; git commit -m 'Initial commit: AI Recruiter platform' -m ('Co-authored-by: Copilot ' + [char]60 + '223556219+Copilot@users.noreply.github.com' + [char]62); if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; git push -u origin main",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}

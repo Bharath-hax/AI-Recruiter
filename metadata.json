@@ -1,0 +1,6 @@
+{
+  "name": "AI Review Automation Platform",
+  "description": "End-to-end engineering task assignment, skill-based employee matching, automated GitHub repository review, acceptance criteria verification, and Workspace communication platform.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
